@@ -1,0 +1,9 @@
+{
+  "CREATED_SUCCESSFULLY": "{data} ត្រូវបានបង្កើតដោយជោគជ័យ",
+  "UPDATED_SUCCESSFULLY": "{data} ត្រូវបានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ",
+  "GET_DATA_SUCCESS": "ទទួលបាន {data} ដោយជោគជ័យ",
+  "LOGIN_SUCCESS": "ចូលដោយជោគជ័យ",
+  "REGISTER_SUCCESS": "ចុះឈ្មោះដោយជោគជ័យ",
+  "LOGOUT": "ចេញដោយជោគជ័យ",
+  "DELETED_SUCCESSFULLY": "{data} ត្រូវបានលុបដោយជោគជ័យ"
+}

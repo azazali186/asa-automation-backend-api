@@ -1,0 +1,9 @@
+{
+  "CREATED_SUCCESSFULLY": "{data} 成功创建",
+  "UPDATED_SUCCESSFULLY": "{data} 成功更新",
+  "GET_DATA_SUCCESS": "成功获取 {data}",
+  "LOGIN_SUCCESS": "成功登录",
+  "REGISTER_SUCCESS": "成功注册",
+  "LOGOUT": "成功注销",
+  "DELETED_SUCCESSFULLY": "{data} 成功删除"
+}
