@@ -6,8 +6,9 @@ import {
 } from '@nestjs/swagger';
 
 export class CreateAdminPageDto {
-  @ApiProperty({ type: [Number] })
+  @ApiPropertyOptional({ type: [Number] })
   @IsArray()
+  @IsOptional()
   permissionIds: number[];
 
   @ApiProperty({ type: String })

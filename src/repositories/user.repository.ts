@@ -21,10 +21,10 @@ import { AdminPageRepository } from './admin-page.repository';
 import { ApiResponse } from 'src/utils/response.util';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { LangService } from 'src/services/lang.service';
-import { UserStatus } from 'src/enum/user-status.enum';
+
 import { splitDateRange } from '../utils/helper.utils';
 import { ChangePasswordDto } from 'src/dto/change-password.dto';
-import { RegisterVendorDto } from 'src/dto/register-vendor.dto';
+import { CommonStatus } from 'src/enum/common-status.enum';
 
 export class UserRepository extends Repository<User> {
   constructor(
@@ -73,9 +73,7 @@ export class UserRepository extends Repository<User> {
   async findSessionTokenByUserId(id: number) {
     const token = await this.sessionRepository.findOne({
       where: {
-        user: {
-          id: id,
-        },
+        id: id,
       },
       order: {
         id: 'DESC',
@@ -115,7 +113,7 @@ export class UserRepository extends Repository<User> {
       });
     }
 
-    if (role) {
+    /* if (role) {
       switch (role) {
         case 'admin':
           query.andWhere(
@@ -137,7 +135,7 @@ export class UserRepository extends Repository<User> {
           );
           break;
       }
-    }
+    } */
 
     query
       .leftJoinAndSelect('user.roles', 'roles')
@@ -206,10 +204,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async register(
-    registerDto: RegisterDto | RegisterVendorDto,
-    roleName: string,
-  ) {
+  async register(registerDto: RegisterDto, roleName: string) {
     const { name, username } = registerDto;
 
     // Check for existing user
@@ -272,7 +267,7 @@ export class UserRepository extends Repository<User> {
           param: username,
         });
       }
-      if (user.status === UserStatus.INACTIVE) {
+      if (user.status === CommonStatus.INACTIVE) {
         throw new UnauthorizedException({
           statusCode: 401,
           message: 'DISABLED_ACCOUNT',
@@ -335,7 +330,6 @@ export class UserRepository extends Repository<User> {
 
     const session = this.sessionRepository.create({
       token: tokenDetails.token,
-      user: user,
       string_token: tokenDetails.tokenString,
       expires_at: expiryDate,
       is_expired: false,
@@ -529,7 +523,7 @@ export class UserRepository extends Repository<User> {
       where: [{ id: req.user.id }],
     });
 
-    if (user.status === UserStatus.INACTIVE) {
+    if (user.status === CommonStatus.INACTIVE) {
       throw new UnauthorizedException({
         statusCode: 401,
         message: 'DISABLED_ACCOUNT',
@@ -566,11 +560,9 @@ export class UserRepository extends Repository<User> {
 
   async removeUser(id: number) {
     try {
-      this.sessionRepository.softDelete({
-        user: {
-          id: id,
-        },
-      });
+      /* this.sessionRepository.softDelete({
+        id: id,
+      }); */
       const result = await this.userRepository.softDelete(id);
       // console.log(result);
       if (result.affected === 0) {

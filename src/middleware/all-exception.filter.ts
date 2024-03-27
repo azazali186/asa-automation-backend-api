@@ -23,7 +23,7 @@ export class QueryFailedErrorFilter implements ExceptionFilter {
       statusCode: HttpStatus.CONFLICT,
       error: exception.driverError.message,
     };
-    switch (exception.driverError.code) {
+    /*  switch (exception.driverError.code) {
       case 'ER_DUP_ENTRY':
         const match = /Duplicate entry '(.*?)' for key/.exec(
           exception.driverError.message,
@@ -36,7 +36,7 @@ export class QueryFailedErrorFilter implements ExceptionFilter {
         break;
       default: {
       }
-    }
+    } */
 
     httpAdapter.reply(ctx.getResponse(), responseBody, HttpStatus.CONFLICT);
   }

@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+dotenv.config({ path: `.env` });
 // dotenv.config({ path: `.env` });
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -46,15 +46,8 @@ async function bootstrap() {
     'http://localhost:3000',
     'http://localhost:3002',
     'http://localhost:3003',
-    'http://154.41.253.133:4500',
-    'http://154.41.253.133:3000',
-    'http://154.41.253.133',
-    'https://go-kh.com',
-    'http://go-kh.com',
-    'https://api.go-kh.com',
-    'http://api.go-kh.com',
-    'http://admin.go-kh.com',
-    'https://admin.go-kh.com',
+    'http://localhost:8080',
+    'http://localhost:8090',
   ];
   const corsOptions = {
     origin: function (origin: any, callback: any) {
@@ -100,7 +93,7 @@ async function bootstrap() {
     }),
   );
   app.use(errorLogMiddleware);
-  await app.listen(process.env.PORT || 4000);
+  await app.listen(process.env.PORT || 4800);
 
   const entityManager: EntityManager = app.get(EntityManager);
   permissionRepo = entityManager.getRepository(Permission);

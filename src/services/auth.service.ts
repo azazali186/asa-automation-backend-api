@@ -10,7 +10,6 @@ import { User } from 'src/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserRepository } from '../repositories/user.repository';
 import { ApiResponse } from 'src/utils/response.util.js';
-import { RegisterVendorDto } from 'src/dto/register-vendor.dto.js';
 
 @Injectable()
 export class AuthService {
@@ -19,7 +18,7 @@ export class AuthService {
     public userRepository: UserRepository,
   ) {}
 
-  register(registerDto: RegisterDto | RegisterVendorDto, roleName: string) {
+  register(registerDto: RegisterDto, roleName: string) {
     return this.userRepository.register(registerDto, roleName);
   }
   async findAll(filterDto: SearchUserDto) {

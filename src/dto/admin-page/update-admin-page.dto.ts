@@ -3,10 +3,12 @@ import { ApiHideProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class UpdateAdminPageDto {
   @ApiPropertyOptional({ type: [Number] })
   @IsArray()
+  @IsOptional()
   permissionIds: number[];
 
   @ApiPropertyOptional({ type: String })
   @IsString()
+  @IsOptional()
   name: string;
 
   @ApiPropertyOptional({ type: 'text', nullable: true })

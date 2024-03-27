@@ -8,7 +8,7 @@ import {
   IsNumber,
   IsIn,
 } from 'class-validator';
-import { UserStatus } from 'src/enum/user-status.enum';
+import { CommonStatus } from 'src/enum/common-status.enum';
 
 export class UpdateUserDto {
   @ApiPropertyOptional()
@@ -64,10 +64,10 @@ export class UpdateUserDto {
 
   @ApiPropertyOptional()
   @IsOptional()
-  @IsIn([UserStatus.ACTIVE, UserStatus.INACTIVE], {
+  @IsIn([CommonStatus.ACTIVE, CommonStatus.INACTIVE], {
     message: 'INVALID_STATUS_ACTIVE_INACTIVE',
   })
-  status: UserStatus;
+  status: CommonStatus;
 
   @ApiPropertyOptional()
   @IsString({

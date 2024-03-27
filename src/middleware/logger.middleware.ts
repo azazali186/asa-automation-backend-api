@@ -13,7 +13,7 @@ import {
   sendTelegramMessage,
 } from 'src/utils/helper.utils';
 import * as morgan from 'morgan';
-import { ElasticService } from 'src/services/elastic.service';
+// import { ElasticService } from 'src/services/elastic.service';
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
@@ -22,7 +22,6 @@ export class LoggerMiddleware implements NestMiddleware {
     private logRepository: LogRepository,
     @InjectRepository(AdminPageRepository)
     private apRepo: AdminPageRepository,
-    private elService: ElasticService,
   ) {}
 
   private readonly indexName =
@@ -52,11 +51,11 @@ export class LoggerMiddleware implements NestMiddleware {
       log.requested_by = req?.user?.username || 'guest';
       log.mobile_number = req?.user?.mobile_number || 'guest';
       this.logRepository.save(log);
-      try {
-        const elk = this.elService.createIndex(this.indexName, log);
-      } catch (error) {
-        // console.log('error while creating log elk');
-      }
+      // try {
+      //   const elk = this.elService.createIndex(this.indexName, log);
+      // } catch (error) {
+      //   // console.log('error while creating log elk');
+      // }
       const message = `API NAME: ${action}\nAPI REQUEST PARAMS: ${JSON.stringify(
         reqBody,
         null,

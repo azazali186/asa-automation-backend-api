@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { ApiHideProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsIn, IsOptional } from 'class-validator';
-import { UserStatus } from 'src/enum/user-status.enum';
 import { SearchBaseDto } from './search-base-dto';
+import { CommonStatus } from 'src/enum/common-status.enum';
 
 export class SearchUserDto extends SearchBaseDto {
   @ApiPropertyOptional()
   @IsOptional()
-  @IsIn([UserStatus.ACTIVE, UserStatus.INACTIVE])
-  status: UserStatus;
+  @IsIn([CommonStatus.ACTIVE, CommonStatus.INACTIVE])
+  status: CommonStatus;
 
   @ApiPropertyOptional()
   @IsOptional()

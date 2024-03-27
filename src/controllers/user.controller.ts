@@ -15,7 +15,7 @@ import { CreateUserDto } from 'src/dto/create-user.dto';
 import { SearchUserDto } from 'src/dto/search-user.dto';
 import { UpdateUserDto } from 'src/dto/update-user.dto';
 import { CommonStatus } from 'src/enum/common-status.enum';
-import { CommonStatusValidationPipes } from 'src/pipes/user-status-validation.pipe';
+import { UserStatusValidationPipes } from 'src/pipes/user-status-validation.pipe';
 import { UserService } from 'src/services/user.service';
 import { ApiResponse } from 'src/utils/response.util';
 
@@ -34,7 +34,7 @@ export class UserController {
   @ApiQuery({ name: 'status', enum: CommonStatus })
   @Get('users')
   findAll(
-    @Query(CommonStatusValidationPipes) filterDto: SearchUserDto,
+    @Query(UserStatusValidationPipes) filterDto: SearchUserDto,
   ): Promise<ApiResponse<any>> {
     filterDto.role = 'admin';
     return this.userService.findAll(filterDto);

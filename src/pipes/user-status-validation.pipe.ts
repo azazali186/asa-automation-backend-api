@@ -1,8 +1,8 @@
 import { BadRequestException, PipeTransform } from '@nestjs/common';
-import { UserStatus } from 'src/enum/user-status.enum';
+import { CommonStatus } from 'src/enum/common-status.enum';
 
 export class UserStatusValidationPipes implements PipeTransform {
-  readonly userStatus = [UserStatus.ACTIVE, UserStatus.INACTIVE];
+  readonly userStatus = [CommonStatus.ACTIVE, CommonStatus.INACTIVE];
   transform(value: any) {
     let val = value.status;
     if (val) {
