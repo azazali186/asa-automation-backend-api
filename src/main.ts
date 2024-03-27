@@ -74,8 +74,8 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Product Search Engine API')
-    .setDescription('Product Search Engine API')
+    .setTitle('ASA Automation Tools for complete Logistics Solution.')
+    .setDescription('ASA Automation Tools for complete Logistics Solution.')
     .setVersion('1.0')
     .addServer(process.env.SWAGGER_SERVER)
     .addServer(process.env.SWAGGER_DEV_SERVER)
