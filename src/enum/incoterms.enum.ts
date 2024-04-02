@@ -1,0 +1,17 @@
+export enum IncotermsTypes {
+  'FOB' = 'Free On Board',
+  'CIF' = 'Cost, Insurance, and Freight',
+  'EXW' = 'Ex Works',
+  'FCA' = 'Free Carrier',
+  'CPT' = 'Carriage Paid To',
+  'CIP' = 'Carriage and Insurance Paid To',
+  'DAP' = 'Delivered at Place',
+  'DAT' = 'Delivered at Terminal',
+  'DDP' = 'Delivered Duty Paid',
+  'CFR' = 'Cost and Freight',
+  'DDU' = 'Delivered Duty Unpaid',
+  'FAS' = 'Free Alongside Ship',
+  'DES' = 'Delivered Ex Ship',
+  'DEQ' = 'Delivered Ex Quay',
+  'DAF' = 'Delivered at Frontier',
+}

@@ -1,4 +1,5 @@
 import { AdminPage } from 'src/entities/admin-page.entity';
+import { Carrier } from 'src/entities/carrier.entity';
 import { Currency } from 'src/entities/currency.entity';
 import { Files } from 'src/entities/files.entity';
 import { Images } from 'src/entities/images.entity';
@@ -23,4 +24,5 @@ export const ImportEntities = [
   Translations,
   Images,
   Files,
+  Carrier,
 ];

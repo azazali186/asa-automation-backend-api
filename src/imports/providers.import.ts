@@ -4,6 +4,7 @@ import { QueryFailedErrorFilter } from 'src/middleware/all-exception.filter';
 import { HttpExceptionFilter } from 'src/middleware/http-exception.filter';
 import { JwtWebSocketMiddleware } from 'src/middleware/jwt-socket.middlwware';
 import { AdminPageRepository } from 'src/repositories/admin-page.repository';
+import { CarrierRepository } from 'src/repositories/carrier.repository';
 import { CurrencyRepository } from 'src/repositories/currency.repository';
 import { FilesRepository } from 'src/repositories/files.repository';
 import { ImagesRepository } from 'src/repositories/image.repository';
@@ -16,6 +17,7 @@ import { TranslationsRepository } from 'src/repositories/translation.repository'
 import { UserRepository } from 'src/repositories/user.repository';
 import { AdminPageService } from 'src/services/admin-page.service';
 import { AuthService } from 'src/services/auth.service';
+import { CarrierService } from 'src/services/carrier.service';
 import { CurrencyService } from 'src/services/currency.service';
 import { FilesService } from 'src/services/files.service';
 import { JwtAuthService } from 'src/services/jwt-auth.service';
@@ -71,4 +73,6 @@ export const ImportProviders = [
   FilesService,
   FilesRepository,
   AdminPageService,
+  CarrierRepository,
+  CarrierService,
 ];

@@ -1,6 +1,7 @@
 import { AdminPageController } from 'src/controllers/admin-page.controller';
 import { AuthController } from 'src/controllers/auth.controller';
 import { BroadcastingController } from 'src/controllers/broadcasting.controller';
+import { CarrierController } from 'src/controllers/carrier.controller';
 import { CurrencyController } from 'src/controllers/currency.controller';
 import { FilesController } from 'src/controllers/files.controller';
 import { LanguageController } from 'src/controllers/language.controller';
@@ -20,4 +21,5 @@ export const ImportControllers = [
   LanguageController,
   FilesController,
   AdminPageController,
+  CarrierController,
 ];
